@@ -1,0 +1,29 @@
+write a class to calculate the uber price.
+
+class UberPriceCalculator {
+  constructor(baseRate, ratePerMile, ratePerMinute, surgeMultiplier) {
+    this.baseRate = baseRate;           // Base fare
+    this.ratePerKm = ratePerMile;     // Rate per Km
+    this.ratePerMinute = ratePerMinute; // Rate per minute
+    this.surgeMultiplier = surgeMultiplier || 1; // Surge pricing multiplier (default to 1)
+  }
+
+  calculatePrice(distanceInKm, timeInMinutes) {
+    // Calculate the total fare, including surge pricing if applicable
+    var fare = (
+      this.baseRate +
+      (distanceInKm * this.ratePerKm) +
+      (timeInMinutes * this.ratePerMinute)
+    ) * this.surgeMultiplier;
+
+    return fare;
+  }
+}
+
+// Example usage:
+var calculator = new UberPriceCalculator(2.5, 1.5, 0.3); // Base rate, rate per mile, rate per minute
+var distance = 10; // 10 Km
+var time = 20;    // 20 minutes
+var price = calculator.calculatePrice(distance, time);
+
+console.log(`Your Uber price is ${price.toFixed(2)}Rs`); 

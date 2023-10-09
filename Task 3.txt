@@ -1,0 +1,36 @@
+Write a “person” class to hold all the details.
+
+class Person {
+  constructor(firstName, lastName, age, gender, email) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.gender = gender;
+    this.email = email;
+  }
+
+  // Method to display the person's full name
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  // Method to check if the person is an adult (age >= 18)
+  isAdult() {
+    return this.age >= 18;
+  }
+
+  // Method to display all details of the person
+  displayDetails() {
+    console.log(`Full Name: ${this.getFullName()}`);
+    console.log(`Age: ${this.age}`);
+    console.log(`Gender: ${this.gender}`);
+    console.log(`Email: ${this.email}`);
+    console.log(`Is Adult: ${this.isAdult() ? 'Yes' : 'No'}`);
+  }
+}
+
+// Create a person object
+var person1 = new Person("Kalai", "Bharathi", 22, "Male", "vkalaibharathi@gmail.com");
+
+// Display the person's details
+person1.displayDetails();
